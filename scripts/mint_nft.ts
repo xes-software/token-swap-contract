@@ -13,14 +13,8 @@ lucid.selectWalletFromSeed(Deno.env.get("SEED_PHRASE")!);
 const { payment } = Addresses.inspect(await lucid.wallet.address());
 
 const mintingPolicy = lucid.newScript({
-  type: "All",
-  scripts: [
-    { type: "Sig", keyHash: payment!.hash },
-    {
-      type: "Before",
-      slot: lucid.utils.unixTimeToSlots(Date.now() + 10000000),
-    },
-  ],
+  type: "Sig",
+  keyHash: payment!.hash,
 });
 
 const policyId = mintingPolicy.toHash();
