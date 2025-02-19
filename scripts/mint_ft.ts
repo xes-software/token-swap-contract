@@ -25,7 +25,7 @@ const mintingPolicy = lucid.newScript({
 
 const policyId = mintingPolicy.toHash();
 
-const name = "1";
+const name = "Fungible Native Asset";
 
 const unit = policyId + fromText(name);
 
