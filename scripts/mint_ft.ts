@@ -25,19 +25,18 @@ const mintingPolicy = lucid.newScript({
 
 const policyId = mintingPolicy.toHash();
 
-const nftNames = ["TSnek01", "TSnek02", "TSnek03"];
+const name = "1";
 
-nftNames.forEach(async (name) => {
-  const unit = policyId + fromText(name);
+const unit = policyId + fromText(name);
 
-  const metadata = get721Metadata(policyId, name);
-  const tx = await lucid
-    .newTx()
-    .mint({ [unit]: 1n })
-    .attachScript(mintingPolicy)
-    .attachMetadata(721, metadata)
-    .commit();
-  const signedTx = await tx.sign().commit();
-  const txHash = await signedTx.submit();
-  console.log("Successful mint of " + name + " with txHash: " + txHash);
-});
+const metadata = get721Metadata(policyId, name);
+const tx = await lucid
+  .newTx()
+  .mint({ [unit]: 30n })
+  .validTo(Date.now() + 200000)
+  .attachScript(mintingPolicy)
+  .attachMetadata(721, metadata)
+  .commit();
+const signedTx = await tx.sign().commit();
+const txHash = await signedTx.submit();
+console.log("Successful mint of " + name + " with txHash: " + txHash);
