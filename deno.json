@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "dev": "deno run --env-file -A main.ts",
+    "mint-ft": "deno run --env-file -A ./scripts/mint_ft.ts",
+    "mint-nft": "deno run --env-file -A ./scripts/mint_nft.ts",
+    "wallet-gen": "deno run ./scripts/wallet_gen.ts"
+  },
+  "imports": {
+    "@spacebudz/lucid": "jsr:@spacebudz/lucid@^0.20.4"
+  }
+}

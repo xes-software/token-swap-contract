@@ -1,0 +1,28 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@spacebudz/lucid@~0.20.4": "0.20.4",
+    "jsr:@std/bytes@1.0.4": "1.0.4",
+    "jsr:@std/encoding@1.0.5": "1.0.5"
+  },
+  "jsr": {
+    "@spacebudz/lucid@0.20.4": {
+      "integrity": "7c84d48cfaaa675f220941e5dc61ef7594a411f4e517df3141f524528393be67",
+      "dependencies": [
+        "jsr:@std/bytes",
+        "jsr:@std/encoding"
+      ]
+    },
+    "@std/bytes@1.0.4": {
+      "integrity": "11a0debe522707c95c7b7ef89b478c13fb1583a7cfb9a85674cd2cc2e3a28abc"
+    },
+    "@std/encoding@1.0.5": {
+      "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@spacebudz/lucid@~0.20.4"
+    ]
+  }
+}
