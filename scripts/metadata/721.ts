@@ -1,7 +1,7 @@
 export const get721Metadata = (
   policyId: string,
   name: string,
-  attributes?: Record<string, unknown>
+  attributes?: Record<string, unknown>,
 ) => {
   return {
     [policyId]: {

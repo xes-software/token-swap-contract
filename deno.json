@@ -3,6 +3,7 @@
     "dev": "deno run --env-file -A main.ts",
     "mint-ft": "deno run --env-file -A ./scripts/mint_ft.ts",
     "mint-nft": "deno run --env-file -A ./scripts/mint_nft.ts",
+    "deploy-contract": "deno run --env-file -A ./scripts/deploy_contract.ts",
     "wallet-gen": "deno run ./scripts/wallet_gen.ts"
   },
   "imports": {
