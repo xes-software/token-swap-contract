@@ -4,7 +4,7 @@ import { get721Metadata } from "./metadata/721.ts";
 const lucid = new Lucid({
   provider: new Blockfrost(
     "https://cardano-preprod.blockfrost.io/api/v0",
-    Deno.env.get("BLOCKFROST_API_KEY")!,
+    Deno.env.get("BLOCKFROST_API_KEY")!
   ),
 });
 
@@ -21,11 +21,17 @@ const policyId = mintingPolicy.toHash();
 
 const name = "tNFT01";
 const unit = policyId + fromText(name);
+const name2 = "tNFT02";
+const unit2 = policyId + fromText(name2);
+const name3 = "tNFT03";
+const unit3 = policyId + fromText(name3);
 
 const metadata = get721Metadata(policyId, name, { "Attribute 1": "Value" });
 const tx = await lucid
   .newTx()
   .mint({ [unit]: 1n })
+  .mint({ [unit2]: 1n })
+  .mint({ [unit3]: 1n })
   .validTo(Date.now() + 200000)
   .attachScript(mintingPolicy)
   .attachMetadata(721, metadata)

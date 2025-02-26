@@ -31,20 +31,20 @@ const tokenSwapAddress = lucid.utils.scriptToAddress({
 
 const contractUtxos = await lucid.utxosAt(tokenSwapAddress);
 
-const ftUnit = ftPolicyId + fromText("Fungle Native Asset");
-const utxo = contractUtxos.find((u) => u.assets[ftUnit] === 10n);
+const nftUnit = nftPolicyId + fromText("tNFT01");
+const utxo = contractUtxos.find((u) => u.assets[nftUnit] === 1n);
 console.log(utxo);
 
-const unit = nftPolicyId + fromText("tNFT01");
-const assets: Assets= {
-  [unit]: 1n,
-};
+// const unit = nftPolicyId + fromText("tNFT01");
+// const assets: Assets= {
+//   [unit]: 1n,
+// };
 
 const tx = await lucid.newTx().collectFrom([utxo!], Data.void()).attachScript({
   type: "PlutusV3",
   script: swapScript,
 })
-.payToContract(tokenSwapAddress, Data.void(), assets)
+// .payToContract(tokenSwapAddress, Data.void(), assets)
 .commit();
 
 const signedTx = await tx.sign().commit();
