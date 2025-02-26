@@ -19,7 +19,7 @@ const nftPolicyId = Deno.env.get("NFT_POLICY_ID")!;
 const ftPolicyId = Deno.env.get("FT_POLICY_ID")!;
 
 const swapScript = applyParamsToScript(
-  [fromText(nftPolicyId), fromText(ftPolicyId)],
+  [nftPolicyId, ftPolicyId],
   plutus.validators[0].compiledCode,
 );
 
